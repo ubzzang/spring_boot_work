@@ -15,4 +15,10 @@
     <update id="updateReadCount">
         update tbl_board set readcount=readcount+1 where bno=#{bno}
     </update>
+    <delete id="deleteBoard">
+        delete from tbl_board where bno=#{bno}
+    </delete>
+    <update id="updateBoard">
+        update tbl_board set title=#{title}, content=#{content} where bno=#{bno}
+    </update>
 </mapper>

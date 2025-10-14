@@ -32,22 +32,18 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="/board/register">
+                    <form method="post" action="/board/modify">
+                        <input type="hidden" name="bno" value="${board.bno}">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Title</label>
-                            <input type="text" class="form-control" name="title"  id="exampleFormControlInput1" placeholder="제목을 입력하세요.">
+                            <input type="text" class="form-control" name="title"  id="exampleFormControlInput1" value="${board.title}">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                            <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3">${board.content}</textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Writer</label>
-                            <input type="text" class="form-control" name="writer"  id="exampleFormControlInput1" placeholder="작성자를 입력하세요.">
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Register</button>
-                            <button type="reset" class="btn btn-secondary">Reset</button>
+                            <button type="submit" class="btn btn-primary">Modify</button>
                             <button type="button" class="btn btn-info">List</button>
                         </div>
                     </form>

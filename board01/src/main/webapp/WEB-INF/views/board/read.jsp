@@ -1,5 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +48,7 @@
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Content</label>
                         <textarea class="form-control" name="content" id="exampleFormControlTextarea1"
-                                  rows="3" readonly>value="${board.content}"</textarea>
+                                  rows="3" readonly>${board.content}</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Writer</label>
@@ -65,12 +66,18 @@
                                value="${board.readcount}" readonly>
                     </div>
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Modify</button>
-                        <button type="reset" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-primary">Modify</button>
+                        <button type="button" class="btn btn-danger">Remove</button>
                         <button type="button" class="btn btn-info">List</button>
                         <script>
                             document.querySelector(".btn-info").addEventListener("click", function (e) {
                                 self.location = "/board/list";
+                            }, false)
+                            document.querySelector(".btn-primary").addEventListener("click", function (e){
+                                self.location=`/board/modify?bno=${board.bno}`
+                            }, false)
+                            document.querySelector(".btn-danger").addEventListener("click", function (e){
+                                self.location=`/board/remove?bno=${board.bno}`;
                             }, false)
                         </script>
                     </div>

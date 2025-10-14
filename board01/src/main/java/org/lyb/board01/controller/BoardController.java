@@ -37,9 +37,29 @@ public class BoardController {
             return "redirect:/board/register";
         }
     }
-    @GetMapping("read, modify")
+    @GetMapping({"read", "modify"})
     public void read_modify(@RequestParam("bno") int bno, Model model){
         log.info("read_modify");
         model.addAttribute("board", boardService.selectOne(bno));
+    }
+    @GetMapping("remove")
+    public String removeBoard(@RequestParam("bno") int bno){
+        log.info("removeBoard");
+        int result=boardService.removeBoard(bno);
+        if(result==1){
+            return "redirect:/board/list";
+        }else{
+            return "redirect:/board/read?bno="+bno;
+        }
+    }
+    @PostMapping("modify")
+    public String modifyBoard(BoardDTO boardDTO){
+        log.info("modifyBoard");
+        int result=boardService.modifyBoard(boardDTO);
+        if(result==1){
+            return "redirect:/board/read?bno="+boardDTO.getBno();
+        }else{
+            return  "redirect:/board/modify?bno="+boardDTO.getBno();
+        }
     }
 }

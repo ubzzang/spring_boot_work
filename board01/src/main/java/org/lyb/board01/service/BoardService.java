@@ -8,4 +8,6 @@ public interface BoardService {
     List<BoardDTO> selectAll();
     int insertBoard(BoardDTO boardDTO);
     BoardDTO selectOne(int bno);
+    int removeBoard(int bno);
+    int modifyBoard(BoardDTO boardDTO);
 }

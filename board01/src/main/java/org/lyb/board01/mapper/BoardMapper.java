@@ -11,4 +11,6 @@ public interface BoardMapper {
     int insertBoard(BoardDTO boardDTO);
     BoardDTO selectOne(int bno);
     void updateReadCount(int bno);
+    int deleteBoard(int bno);
+    int updateBoard(BoardDTO boardDTO);
 }

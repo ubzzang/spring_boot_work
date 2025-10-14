@@ -30,4 +30,14 @@ public class BoardServiceImpl implements BoardService {
         boardMapper.updateReadCount(bno);
         return boardMapper.selectOne(bno);
     }
+
+    @Override
+    public int removeBoard(int bno) {
+        return boardMapper.deleteBoard(bno);
+    }
+
+    @Override
+    public int modifyBoard(BoardDTO boardDTO) {
+        return boardMapper.updateBoard(boardDTO);
+    }
 }
