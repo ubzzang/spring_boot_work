@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 th:text="${list}"></h2>
+<hr>
+<h2>[[${list}]]</h2>
+<div th:with="num1=${10}, num2=${20}">
+    <h4 th:text="${num1+num2}"></h4>
+    [[${num1+num2}]]
+    <br>
+    <span th:if="${num1>num2}">num1 : [[${num1}]]</span>
+    <span th:unless="${num1>num2}">num2 : [[${num2}]]</span>
+</div>
+<ul>
+    <li th:each="str:${list}">[[${str}]]</li>
+</ul>
+<ul>
+    <th:block th:each="str:${list}">
+        <li>[[${str}]]</li>
+    </th:block>
+</ul>
+<ul>
+    <li th:each="str,status:${list}">
+        <span th:if="${status.odd}">ODD - [[${str}]]</span>
+        <span th:unless="${status.odd}">EVEN - [[${str}]]</span>
+    </li>
+</ul>
+<ul>
+    <li th:each="str, status:${list}">
+        <span>[[${status.index}]]-[[${str}]]</span> :
+        <span>[[${status.count}]]-[[${str}]]</span>
+    </li>
+</ul>
+
+<hr>
+
+<a href="/hello?name=홍길동&age=20">hello</a>
+<a th:href="@{/hello(name='홍길동', age=20)}">hello</a>
+<a th:href="@{/hello2(types=${ {'AA','BB','CC'} }, age=16)}">hello2</a>
+<a href="/hello2?types=AA&types=BB&types=CC&age=20">hello2</a>
+
+<script th:inline="javascript">
+    const list=[[${list}]]
+    console.log(list)
+</script>
+</body>
+</html>

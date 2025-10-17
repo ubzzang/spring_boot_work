@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/layout.html}">
+<div layout:fragment="content">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="card-title">게시판 상세보기</div>
+            <form action="/board/register" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" id="" placeholder="제목을 입력하세요.">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Content</label>
+                    <textarea class="form-control" name="content" id="" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Writer</label>
+                    <input type="text" name="writer" class="form-control" id="" placeholder="작성자를 입력하세요.">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">등록하기</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                    <a th:href="@{/board/list}">
+                        <button type="button" class="btn btn-info">목록가기</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

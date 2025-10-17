@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/layout.html}">
+<div layout:fragment="content">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="card-title">게시판 상세보기</div>
+            <div class="mb-3">
+                <label class="form-label">Bno</label>
+                <input type="text" class="form-control" name="bno"
+                       th:value="${board.bno}" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" name="title"
+                       th:value="${board.title}" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Content</label>
+                <input type="text" class="form-control" name="content"
+                       th:value="${board.content}" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Writer</label>
+                <input type="text" class="form-control" name="writer"
+                       th:value="${board.writer}" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">postdate</label>
+                <input type="text" class="form-control" name="postdate"
+                       th:value="${board.postdate}" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">readcount</label>
+                <input type="text" class="form-control" name="readcount"
+                       th:value="${board.readcount}" readonly>
+            </div>
+            <div class="mb-3">
+                <a th:href="@{/board/modify(bno=${board.bno})}">
+                    <button type="submit" class="btn btn-primary">Modify</button>
+                </a>
+                <a th:href="@{/board/remove(bno=${board.bno})}">
+                    <button type="reset" class="btn btn-secondary">Remove</button>
+                </a>
+                <a th:href="@{/board/list}">
+                    <button type="button" class="btn btn-info">목록가기</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>

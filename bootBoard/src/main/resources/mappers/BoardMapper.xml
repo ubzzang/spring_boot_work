@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lyb.bootboard.mapper.BoardMapper">
+    <sql id="search">
+        <where>
+            <if test="types != null and types.length > 0">
+                <foreach collection="types" item="type" open="(" close=")" separator=" OR ">
+                    <if test="type.equals('t')">
+                        title LIKE CONCAT('%', #{keyword}, '%')
+                    </if>
+                    <if test="type.equals('c')">
+                        content LIKE CONCAT('%', #{keyword}, '%')
+                    </if>
+                </foreach>
+            </if>
+        </where>
+    </sql>
+
+    <select id="selectPageBoards" parameterType="org.lyb.bootboard.dto.PageRequestDTO" resultType="org.lyb.bootboard.dto.BoardDTO">
+        SELECT * FROM boot_board
+        <where>
+            <if test="searchField != null and searchField != ''">
+                ${searchField} LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+        ORDER BY bno DESC
+        LIMIT #{skip}, #{size}
+    </select>
+
+
+
+
+    <select id="getCount" resultType="int">
+        SELECT COUNT(*) FROM boot_board
+        <include refid="search"/>
+    </select>
+    <select id="selectAllBoards" resultType="BoardDTO">
+        select * from boot_board order by bno desc
+    </select>
+    <insert id="insertBoard">
+        insert into boot_board(title, writer, content, ofile, sfile) values(#{title}, #{writer}, #{content}, #{ofile}, #{sfile})
+    </insert>
+    <select id="selectOne" resultType="BoardDTO">
+        select * from boot_board where bno=#{bno}
+    </select>
+    <update id="updateReadCount">
+        update boot_board set readcount=readcount+1 where bno=#{bno}
+    </update>
+    <delete id="deleteBoard">
+        delete from boot_board where bno=#{bno}
+    </delete>
+    <update id="updateBoard">
+        update boot_board set title=#{title}, content=#{content}, ofile=#{ofile}, sfile=#{sfile} where bno=#{bno}
+    </update>
+
+</mapper>

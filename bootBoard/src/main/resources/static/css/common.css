@@ -1,0 +1,13 @@
+@charset "UTF-8";
+body{font-family: 'KakaoBigFont';background:#F9FAFC;}
+body * {box-sizing: border-box; font-family: 'KakaoBigFont'}
+main{padding:50px; max-width:1400px; margin:0 auto;}
+main .tit{display:flex; justify-content: space-between; margin-bottom:50px; align-items:center; border-bottom:1px solid #ddd; padding:0 0 30px;}
+main .tit h2{font-size:40px;}
+
+/*button*/
+.btn-wrap {margin: 20px 0; display:flex; align-items:center; justify-content: end; gap:6px}
+.btn-wrap button{padding:12px; box-shadow: none; border-radius:4px; outline:none; border:none;}
+.btn-wrap .btn01{background:#0045C9; color:#fff;}
+.btn-wrap .btn02{background-color: #EFF5FF;border: 1px solid #0053F2;color: #0045C9;}
+.btn-wrap .btn03{border:1px solid #000; color:#000; background:#fff;}
