@@ -72,7 +72,7 @@ color: #000; text-decoration: none;}
 .pagination .active a,
 .pagination a:hover {border:none; border:1px solid #0045C9; color: #0045C9;}
 .pagination .active a{background: #0053F2; color:#fff;}
-.pagination .arrow-left{background:url(../img/left.svg) no-repeat center;}
-.pagination .arrow-right{background:url(../img/right.svg) no-repeat center;}
+.pagination .arrow-left{background:url(../img/right.svg) no-repeat center; text-indent: -9999px;}
+.pagination .arrow-right{background:url(../img/left.svg) no-repeat center; text-indent: -9999px;}
 .pagination .page-link{border: 1px solid #555; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
 font-size: 16px; color:#000; text-decoration: none; border-radius: 4px;}

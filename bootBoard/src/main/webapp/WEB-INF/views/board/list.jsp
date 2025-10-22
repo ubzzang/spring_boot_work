@@ -60,23 +60,25 @@
                     <c:if test="${responseDTO.prev}">
                         <li class="page-item">
                             <a class="page-link arrow-left"
-                               href="?page=${responseDTO.start - 1}&size=${pageRequestDTO.size}">Previous</a>
+                               href="?page=${responseDTO.start - 1}&${pageRequestDTO.link}">Previous</a>
                         </li>
                     </c:if>
 
                     <c:forEach begin="${responseDTO.start}" end="${responseDTO.end}" var="num">
                         <li class="page-item ${responseDTO.page == num ? 'active' : ''}">
-                            <a class="page-link" href="?page=${num}&size=${pageRequestDTO.size}">${num}</a>
+                            <a class="page-link"
+                               href="?page=${num}&${pageRequestDTO.link}">${num}</a>
                         </li>
                     </c:forEach>
 
                     <c:if test="${responseDTO.next}">
                         <li class="page-item">
                             <a class="page-link arrow-right"
-                               href="?page=${responseDTO.end + 1}&size=${pageRequestDTO.size}">Next</a>
+                               href="?page=${responseDTO.end + 1}&${pageRequestDTO.link}">Next</a>
                         </li>
                     </c:if>
                 </ul>
+
             </nav>
 
         </c:otherwise>
